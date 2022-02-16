@@ -7,3 +7,7 @@
 <h2>Veeam Backup and Replication</h2>
 
 - Find-OrphanedVPowerNFSDatastore</br>
+
+<h2>Exchange Online</h2>
+
+- Get-MessageCount</br>
