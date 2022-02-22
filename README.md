@@ -4,6 +4,10 @@
 
 - Get-ADFsmoRoleHolder</br>
 
+<h2>E-Mail</h2>
+
+- Get-MailExchanger
+
 <h2>Exchange Online</h2>
 
 - Get-MessageCount</br>
