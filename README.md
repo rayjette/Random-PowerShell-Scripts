@@ -10,6 +10,7 @@
 
 <h2>Veeam Backup and Replication</h2>
 
+- Find-LastBackup</br>
 - Find-OrphanedVPowerNFSDatastore</br>
 
 <h2>VMware</h2>
