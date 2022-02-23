@@ -19,7 +19,11 @@ Function Find-EmptyDirectory
 
     .EXAMPLE
     Find-EmptyDirectory -Path C:\MyData -Recurse
-    Look for empty folders in C:\MyData and any subdirectories encountered.
+    Look for empty directories in C:\MyData and any subdirectories encountered.
+
+    .EXAMPLE
+    Find-EmptyDirectory -Path C: -Recurse | Select-Object FullName
+    Looks at C: and any subdirectories for empty directories and outputs the full path to each one found.
 
     .INPUTS
     None.  Find-EmptyDirectory does not accept input from the pipeline.
@@ -36,7 +40,7 @@ Function Find-EmptyDirectory
 
         [switch]$Recurse
     )
-    # These are the parameter to Get-ChildItem
+    # These are the parameter for Get-ChildItem
     $splat = @{
         Path = $Path
         Directory = $true
