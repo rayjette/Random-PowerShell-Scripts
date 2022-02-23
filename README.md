@@ -12,6 +12,10 @@
 
 - Get-MessageCount</br>
 
+<h2>Files and Folders</h2>
+
+- Find-EmptyDirectory
+
 <h2>Veeam Backup and Replication</h2>
 
 - Find-LastBackup</br>
