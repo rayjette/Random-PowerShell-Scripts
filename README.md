@@ -15,6 +15,7 @@
 <h2>Files and Folders</h2>
 
 - Find-EmptyDirectory
+- Find-EmptyFiles
 
 <h2>Veeam Backup and Replication</h2>
 
