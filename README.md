@@ -25,3 +25,7 @@
 <h2>VMware</h2>
 
 - Get-GuestDiskSpace</br>
+
+<h2>Windows</h2>
+
+- Get-VssWriter
