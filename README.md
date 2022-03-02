@@ -10,6 +10,7 @@
 
 <h2>Exchange Online</h2>
 
+- Find-MailboxForwarding</br>
 - Get-MessageCount</br>
 
 <h2>Files and Folders</h2>
