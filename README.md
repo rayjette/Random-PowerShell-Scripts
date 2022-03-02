@@ -19,6 +19,10 @@
 - Find-EmptyDirectory
 - Find-EmptyFiles
 
+<h2>Symantec Mail Security for Microsoft Exchange</h2>
+
+- ConvertFrom-SmsmeEvent</br>
+
 <h2>Veeam Backup and Replication</h2>
 
 - Find-LastBackup</br>
