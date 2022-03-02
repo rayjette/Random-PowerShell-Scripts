@@ -7,6 +7,7 @@
 <h2>E-Mail</h2>
 
 - Get-MailExchanger
+- Resolve-SpfRecord
 
 <h2>Exchange Online</h2>
 
