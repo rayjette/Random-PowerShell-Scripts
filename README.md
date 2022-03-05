@@ -18,6 +18,7 @@
 
 - Find-EmptyDirectory
 - Find-EmptyFiles
+- Get-FilesChangedAfter
 
 <h2>Symantec Mail Security for Microsoft Exchange</h2>
 
