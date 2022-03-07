@@ -32,7 +32,10 @@
 
 <h2>VMware</h2>
 
+- Disable-VmCBT
+- Enable-VmCBT
 - Get-GuestDiskSpace</br>
+- Get-VmCBT</br>
 
 <h2>Windows</h2>
 
