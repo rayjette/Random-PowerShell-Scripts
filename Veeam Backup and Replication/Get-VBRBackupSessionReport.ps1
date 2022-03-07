@@ -102,6 +102,7 @@ Function Get-VBRBackupSessionReport
             $jobSession = [veeam.backup.core.cbackupsession]::GetByJob($backupJob.Id)
         }
 
+        # Get the task session for each session
         foreach ($session in $jobSession)
         {
             $taskSession = $session | Get-VBRTaskSession
@@ -110,6 +111,7 @@ Function Get-VBRBackupSessionReport
                 $taskSession = $taskSession | Where-Object {$_.name -eq $VMName}
             }
 
+            # Return information about each task in the task session.
             foreach ($task in $taskSession)
             {
                 [PSCustomObject]@{
