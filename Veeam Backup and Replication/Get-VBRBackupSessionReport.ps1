@@ -14,7 +14,8 @@ Function Get-VBRBackupSessionReport
         Report only on the following VM's.
 
         .PARAMETER StartTime
-        Only sessions created at or after this time are considered.  
+        Only sessions created at or after this time are considered. A default value of the last 7
+        days is provided if not specified.
 
         .PARAMETER EndTime
         Only sessions created before or at this time are considered.  
@@ -24,15 +25,15 @@ Function Get-VBRBackupSessionReport
 
         .EXAMPLE
         Get-VBRBackupSessionReport
-        Reports on all sessions.
+        Reports on all sessions within the last 7 days.
 
         .EXAMPLE
         Get-VBRBackupSessionReport -JobName backup-windows_vms-1
-        Reports on sessions for the backup-windows_vms-1 job.
+        Reports on sessions, within the last 7 days, for the backup-windows_vms-1 job.
 
         .EXAMPLE
         Get-VBRBackupSessionReport -VMName 'dc-1'
-        Reports on session for the vm dc-1.
+        Reports on session for the vm dc-1 from within the last 7 days.
 
         .EXAMPLE
         Get-VBRBackupSessionReport -JobName backup-windows_vms-1 -VMName dc-1
@@ -61,7 +62,7 @@ Function Get-VBRBackupSessionReport
         [Parameter(Mandatory, ParameterSetName = 'VM')]
         [string]$VMName,
 
-        [DateTime]$StartTime,
+        [DateTime]$StartTime = (Get-Date).AddDays(-7),
 
         [DateTime]$EndTime = (Get-Date),
 
