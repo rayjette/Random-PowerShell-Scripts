@@ -28,6 +28,7 @@
 
 - Find-LastBackup</br>
 - Find-OrphanedVPowerNFSDatastore</br>
+- Find-UnusedCredentials</br>
 - Get-VBRBackupSessionReport</br>
 
 <h2>VMware</h2>
