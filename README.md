@@ -41,3 +41,4 @@
 <h2>Windows</h2>
 
 - Get-VssWriter
+- Invoke-VssRepair
