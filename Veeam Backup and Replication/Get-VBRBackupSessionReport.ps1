@@ -82,27 +82,8 @@ Function Get-VBRBackupSessionReport
 
     foreach ($backupJob in $backupJobs)
     {
-
-        # The StartTime parameter is provided.  We setup a filter with both the start and EndTime.
-        if ($PSBoundParameters.ContainsKey('StartTime'))
-        {
-            $filter = {$_.CreationTime -ge $StartTime -and $_.CreationTime -le $EndTime}
-        }
-        elseif ($PSBoundParameters.ContainsKey('EndTime'))
-        {
-            $filter = {$_.CreationTime -le $EndTime}
-        }
-
-        # Get backup sessions
-        if ($filter)
-        {
-            $jobSession = [veeam.backup.core.cbackupsession]::GetByJob($backupJob.Id) | Where-Object -FilterScript $filter
-        }
-        else
-        {
-            $jobSession = [veeam.backup.core.cbackupsession]::GetByJob($backupJob.Id)
-        }
-
+        $filter = {$_.CreationTime -ge $StartTime -and $_.CreationTime -le $EndTime}
+        $jobSession = [veeam.backup.core.cbackupsession]::GetByJob($backupJob.Id) | Where-Object -FilterScript $filter
         # Get the task session for each session
         foreach ($session in $jobSession)
         {
