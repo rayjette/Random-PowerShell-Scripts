@@ -96,6 +96,10 @@ Function Get-VBRBackupSessionReport
             # Return information about each task in the task session.
             foreach ($task in $taskSession)
             {
+                if (-not ($details = $task.GetDetails()))
+                {
+                    $details = $null
+                }
                 [PSCustomObject]@{
                     Name = $task.name
                     JobName = $task.JobSess.JobName
@@ -106,6 +110,7 @@ Function Get-VBRBackupSessionReport
                     AvgSpeed  = $task.Progress.AvgSpeed
                     IsFull    = $session.IsFullMode
                     "SizeTransfered($Unit)" = $task.Progress.TransferedSize / "1$Unit"
+                    Details  = $details
                 }
             }
         }
