@@ -35,6 +35,7 @@
 
 - Disable-VmCBT
 - Enable-VmCBT
+- Get-ESXiVibs
 - Get-GuestDiskSpace
 - Get-VmCBT
 
