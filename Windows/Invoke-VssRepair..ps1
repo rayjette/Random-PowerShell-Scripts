@@ -85,7 +85,7 @@ Function Invoke-VssRepair
         foreach ($writer in $failedVssWriters)
         {
             $writerName = $writer.name
-            if ($VssWriterToSerivceName.ContainsKey('$writerName'))
+            if ($VssWriterToSerivceName.ContainsKey($writerName))
             {
                 $service = $VssWriterToSerivceName.$writerName
                 if ($Force -or $PSCmdlet.ShouldContinue($writer.name, 'Restart vss writer'))
