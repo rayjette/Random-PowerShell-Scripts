@@ -2,7 +2,7 @@
 
 <h2>Active Directory</h2>
 
-- Get-ADFsmoRoleHolder</br>
+- Get-ADFsmoRoleHolder
 
 <h2>E-Mail</h2>
 
@@ -11,8 +11,8 @@
 
 <h2>Exchange Online</h2>
 
-- Find-MailboxForwarding</br>
-- Get-MessageCount</br>
+- Find-MailboxForwarding
+- Get-MessageCount
 
 <h2>Files and Folders</h2>
 
@@ -22,24 +22,30 @@
 
 <h2>Symantec Mail Security for Microsoft Exchange</h2>
 
-- ConvertFrom-SmsmeEvent</br>
+- ConvertFrom-SmsmeEvent
 
 <h2>Veeam Backup and Replication</h2>
 
-- Find-LastBackup</br>
-- Find-OrphanedVPowerNFSDatastore</br>
-- Find-UnusedCredentials</br>
-- Get-VBRBackupSessionReport</br>
+- Find-LastBackup
+- Find-OrphanedVPowerNFSDatastore
+- Find-UnusedCredentials
+- Get-VBRBackupSessionReport
 
 <h2>VMware</h2>
 
 - Disable-VmCBT
 - Enable-VmCBT
-- Get-GuestDiskSpace</br>
-- Get-VmCBT</br>
+- Get-GuestDiskSpace
+- Get-VmCBT
 
 <h2>Windows</h2>
 
 - Enable-CrashDump
 - Get-VssWriter
 - Invoke-VssRepair
+- Registry
+    - Get-RegValue
+    - New-RegKey
+    - New-RegValue
+    - Test-RegPath
+    - Test-RegValue
