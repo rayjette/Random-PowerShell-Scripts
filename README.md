@@ -40,5 +40,6 @@
 
 <h2>Windows</h2>
 
+- Enable-CrashDump
 - Get-VssWriter
 - Invoke-VssRepair
