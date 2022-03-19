@@ -17,6 +17,9 @@ Function Get-DiskUsageByDirectory
         .PARAMETER Path
         The path to get size information from.
 
+        .PARAMETER Unit
+        The unit size will be reported as.  Accepted values are TB, GB, MB, and KB.
+
         .EXAMPLE
         Get-DiskUsage
         For each directory in path this will output the size of the directory including it's subdirectories.
@@ -33,25 +36,49 @@ Function Get-DiskUsageByDirectory
 
         [ValidateNotNullOrEmpty()]
         [Parameter(Mandatory)]
-        [string] $Path
+        [string] $Path,
+
+        [ValidateSet('TB', 'GB', 'MB', 'KB')]
+        [string] $Unit
     )
+
+    Function Format-Size($Size, $Unit, $PlacesAfterDecimal)
+    {
+        <#
+            .SYNOPSIS
+            Converts Bytes into the specified unit
+        #>
+        [math]::round($Size / "1$Unit", $PlacesAfterDecimal)
+    }
 
 
     if ($PSBoundParameters.ContainsKey('Recurse'))
     {
         Get-ChildItem -Directory -Path $Path -Recurse | ForEach-Object {
+            Write-Progress -Activity "Getting Size for $($PSItem.FullName)"
+            $Size = ($PSItem | Get-ChildItem -ErrorAction 'SilentlyContinue' | Measure-Object -Sum Length -ErrorAction 'SilentlyContinue').Sum
+            if ($PSBoundParameters.ContainsKey('Unit'))
+            {
+                $Size = Format-Size -Size $Size -Unit $Unit -PlacesAfterDecimal 2
+            }
             [PSCustomObject]@{
-                Name = $PSItem.FullName
-                Size = ($PSItem | Get-ChildItem -ErrorAction 'SilentlyContinue' | Measure-Object -Sum Length -ErrorAction 'SilentlyContinue').Sum
+                Directory = $PSItem.FullName
+                "Size$Unit" = $Size
             }
         }
     }
     else
     {
         Get-ChildItem -Directory -Path $Path | ForEach-Object {
+            Write-Progress -Activity "Getting Size for $($PSItem.FullName)"
+            $Size = ($PSItem | Get-ChildItem -Recurse -ErrorAction 'SilentlyContinue' | Measure-Object -Sum Length -ErrorAction 'SilentlyContinue').Sum
+            if ($PSBoundParameters.ContainsKey('Unit'))
+            {
+                $Size = Format-Size -Size $Size -Unit $Unit -PlacesAfterDecimal 2         
+            }
             [PSCustomObject]@{
-                Name = $PSItem.FullName
-                Size = ($PSItem | Get-ChildItem -Recurse -ErrorAction 'SilentlyContinue' | Measure-Object -Sum Length -ErrorAction 'SilentlyContinue').Sum
+                Directory = $PSItem.FullName
+                "Size$Unit" = $Size
             }
         }
     }
