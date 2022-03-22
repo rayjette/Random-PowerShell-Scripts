@@ -6,7 +6,10 @@ Function Invoke-WsusResetId
         machine from template.  If the identifiers are not changed the machine will not
         show up in WSUS.
     #>
+    # Stop the Windows update service
     Stop-Service -Name 'wuauserv'
+
+    # Delete the SusClientId and SusClientIdValidation properties
     $regPath = 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate'
     @('SusClientId', 'SusClientIdValidation') | ForEach-Object {
         try
@@ -18,6 +21,10 @@ Function Invoke-WsusResetId
             Write-Warning -Message $_.Exception.Message
         }
     }
+
+    # Start the Windows Update Process
     Start-Service -Name 'wuauserv'
+
+    # Connect to wsus with the resetauthorization parameter
     Invoke-Command -ScriptBlock { wuauclt.exe /resetauthorization /detectnow }
 } # Invoke-WsusResetId
