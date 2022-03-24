@@ -21,6 +21,10 @@
 - Get-DiskUsageByDirectory
 - Get-FilesChangedAfter
 
+<h2>Office 365</h2>
+
+- Get-OneDriveReport
+
 <h2>Symantec Mail Security for Microsoft Exchange</h2>
 
 - ConvertFrom-SmsmeEvent
