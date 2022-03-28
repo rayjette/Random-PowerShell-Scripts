@@ -66,6 +66,7 @@ Function Get-MessageCount
         # Loop over each e-mail address outputting the count of messages sent and messages received
         foreach ($address in $EmailAddress)
         {
+            Write-Progress -Activity "Running message trace on $address"
             $messagesSent = Get-MessageTrace -SenderAddress $address @splat
             $messagesReceived = Get-MessageTrace -RecipientAddress $address @splat
 
