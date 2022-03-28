@@ -4,10 +4,16 @@ Function Find-LastBackup
 {
     <#
         .SYNOPSIS
-        Finds the latest restore point in Veeam Backup and Replication.
+        Finds the latest restore point in Veeam Backup and Replication
+        for a given asset.
 
         .DESCRIPTION
         Finds the latest restore point in Veeam Backup and Replication
+        for a given asset.
+
+        An object is returned for every item in name even if a restore point
+        does not exist.  This is to make it easy to identify things from name
+        which are not getting backed up.
 
         .PARAMETER All
         Returns information about all of the latest restore points.
