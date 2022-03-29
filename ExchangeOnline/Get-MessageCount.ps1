@@ -73,7 +73,7 @@ Function Get-MessageCount
             # If the ExcludeSpam parameter is set we will remove anything that was not delivered to the users mailbox.
             if ($PSBoundParameters.ContainsKey('ExcludeSpam'))
             {
-                $filter = {$_.Status -eq 'Delivered' -or $_.Statue -eq 'Resolved'}
+                $filter = {$_.Status -eq 'Delivered' -or $_.Status -eq 'Resolved'}
                 $messagesReceived = $messagesReceived | Where-Object -FilterScript $filter
             }
 
