@@ -23,6 +23,7 @@
 
 <h2>Office 365</h2>
 
+- Find-UnifiedGroupsWithNoOwner
 - Get-OneDriveReport
 
 <h2>Symantec Mail Security for Microsoft Exchange</h2>
