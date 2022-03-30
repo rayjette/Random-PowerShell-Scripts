@@ -44,16 +44,7 @@ Function Get-FilesChangedAfter
 
         [switch]$Recurse
     )
-    # Setup parameters for Get-ChildItem
-    $splat = @{
-        Path = $Path
-        File = $true
-    }
-    if ($PSBoundParameters.ContainsKey('Recurse'))
-    {
-        $splat.add('Recurse', $true)
-    }
-
     # Returns the files that have changed since a given date.
-    Get-ChildItem @splat | Where-Object {$_.LastWriteTime -ge $Date} | Select-Object -ExpandProperty FullName
+    Get-ChildItem -Path $path -File -Recurse:$recurse | 
+        Where-Object {$_.LastWriteTime -ge $Date} | Select-Object -ExpandProperty FullName
 } # Get-FilesChangedAfter
