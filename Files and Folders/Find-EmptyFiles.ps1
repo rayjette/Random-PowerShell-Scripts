@@ -37,17 +37,7 @@ Function Find-EmptyFiles
 
         [switch]$Recurse
     )
-
-    # Parameters to Get-ChildItem
-    $splat = @{
-        Path = $Path
-        File = $true
-    } 
-    if ($PSBoundParameters.ContainsKey('Recurse'))
-    {
-        $splat.add('Recurse', $true)
-    }
-
     # Find files with a length of 0 and output a string contaning the full path to the file. 
-    Get-ChildItem @splat | Where-Object -FilterScript {$_.Length -eq 0} | Select-Object -ExpandProperty FullName
+    $items = Get-ChildItem -Path $path -File -Recurse:$Recurse
+    $items | Where-Object -FilterScript {$_.Length -eq 0} | Select-Object -ExpandProperty FullName
 } # Find-EmptyFiles
