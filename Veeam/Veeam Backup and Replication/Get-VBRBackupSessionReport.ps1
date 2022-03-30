@@ -52,14 +52,11 @@ Function Get-VBRBackupSessionReport
         about Syntethic full's.
     #>
     [OutputType([System.Management.Automation.PSCustomObject])]
-    [CmdletBinding(DefaultParameterSetName = 'Default')]
+    [CmdletBinding()]
     param
     (
-        [Parameter(Mandatory, ParameterSetName = 'Job')]
-        [Parameter(ParameterSetName = 'VM')]
         [string]$JobName,
 
-        [Parameter(Mandatory, ParameterSetName = 'VM')]
         [string]$VMName,
 
         [DateTime]$StartTime = (Get-Date).AddDays(-7),
