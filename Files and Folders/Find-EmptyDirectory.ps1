@@ -40,18 +40,10 @@ Function Find-EmptyDirectory
 
         [switch]$Recurse
     )
-    # These are the parameter for Get-ChildItem
-    $splat = @{
-        Path = $Path
-        Directory = $true
-    }
-    if ($PSBoundParameters.ContainsKey('Recurse'))
-    {
-        $splat.add('Recurse', $true)
-    }
-
+    
     # Loop though each directory returned by Get-ChildItem looking for those which are empty.
-    foreach ($item in (Get-ChildItem @splat))
+    $items = Get-ChildItem -Path $Path -Directory -Recurse:$Recurse
+    foreach ($item in $items)
     {
         if (-not (Get-ChildItem $item.FullName))
         {
