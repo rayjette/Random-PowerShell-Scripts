@@ -25,6 +25,7 @@
 
 - Find-UnifiedGroupsWithNoOwner
 - Get-OneDriveReport
+- Get-SpaceUsageByUser
 
 <h2>Symantec Mail Security for Microsoft Exchange</h2>
 
