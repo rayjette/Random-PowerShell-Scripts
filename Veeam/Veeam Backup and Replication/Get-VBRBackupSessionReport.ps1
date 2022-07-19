@@ -64,7 +64,7 @@ Function Get-VBRBackupSessionReport
         [DateTime]$EndTime = (Get-Date),
 
         [ValidateSet('KB', 'MB', 'GB', 'TB')]
-        $Unit
+        $Unit = 'GB'
     )
 
     # Setup our parameters for Get-VBRJob
